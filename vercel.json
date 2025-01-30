@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "builds": [
+    // server.js を Serverless Function として扱う
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    // すべてのリクエストを server.js に流す
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
+    }
+  ]
+}
