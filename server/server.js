@@ -1,14 +1,7 @@
-app.get("/", async (req, res) => {
-const clientId = process.env.PAYPAL_CLIENT_ID;
-res.render("checkout", {
-clientId,
-});
-});
+const app = express();
 
-import * as paypal from "./paypal-api.js";
+// ルーティングなどの設定はここにあるはず
+// app.get(...) とか app.use(...) など
 
-// create order
-app.post("/api/orders", async (req, res) => {
-  const order = await paypal.createOrder(req.body.paymentSource);
-  res.json(order);
-});
+// ここでモジュールをエクスポート (serverless function 用)
+module.exports = app;
